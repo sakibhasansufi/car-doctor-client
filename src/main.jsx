@@ -12,6 +12,9 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Services from './pages/Services'
 import Error from './pages/Error';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import AuthProvider from './providers/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +42,16 @@ const router = createBrowserRouter([
       {
         path : '/services',
         element : <Services></Services>
-      }
+      },
+      {
+        path : '/register',
+        element : <Register></Register>
+      },
+      {
+        path : '/login',
+        element : <Login></Login>
+      },
+
     ]
   },
 ]);
@@ -47,7 +59,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-7xl mx-auto'>
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <AuthProvider><RouterProvider router={router} /></AuthProvider>
     </React.StrictMode>,
   </div>
 )

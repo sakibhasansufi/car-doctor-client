@@ -7,7 +7,7 @@ const About = () => {
             <div className="hero-content flex-col lg:flex-row gap-20">
                 <div className='relative w-1/2'>
                     <img src={img1} className="max-w-sm rounded-lg shadow-2xl h-[473px]" />
-                    <img src={img2} className="absolute top-40 border-[10px] border-white left-56  h-[332px] w-1/2 max-w-sm rounded-lg shadow-2xl " />
+                    <img src={img2} className="absolute top-48 border-[10px] border-white left-56  h-[332px] w-1/2 max-w-sm rounded-lg shadow-2xl " />
                 </div>
 
 

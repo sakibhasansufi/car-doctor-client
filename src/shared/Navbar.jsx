@@ -12,7 +12,7 @@ const Navbar = () => {
         <li><NavLink to='/contact'activeClassName="active">Contact</NavLink></li>
     </>
     return (
-        <div className="navbar bg-base-100 sticky top-0 z-30">
+        <div className="navbar bg-base-100 sticky  top-0 z-30">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -26,7 +26,7 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <Link to='/' className="w-20 h-20">
+                <Link to='/' className="w-20 h-14">
                     <img src={logo} alt="" />
                 </Link>
             </div>
