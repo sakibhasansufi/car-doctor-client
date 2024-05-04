@@ -10,11 +10,12 @@ import Home from './pages/Home';
 import About from './pages/About'
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
-import Services from './pages/Services'
 import Error from './pages/Error';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import AuthProvider from './providers/AuthProvider';
+import CheckOut from './pages/CheckOut';
+import BookService from './pages/BookService';
 
 const router = createBrowserRouter([
   {
@@ -40,8 +41,9 @@ const router = createBrowserRouter([
         element : <Contact></Contact>
       },
       {
-        path : '/services',
-        element : <Services></Services>
+        path : '/checkout/:id',
+        element : <CheckOut></CheckOut>,
+        loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
       },
       {
         path : '/register',
@@ -51,6 +53,11 @@ const router = createBrowserRouter([
         path : '/login',
         element : <Login></Login>
       },
+      {
+        path : '/book/:id',
+        element : <BookService></BookService>,
+        loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+      }
 
     ]
   },
