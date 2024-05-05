@@ -42,6 +42,11 @@ const Navbar = () => {
                                             {user?.displayName || "user not found"}
                                         </a>
                                     </li>
+                                    <li>
+                                        <a className="justify-between">
+                                            {user?.email || "user email not found"}
+                                        </a>
+                                    </li>
                                     <li ><Link to='/bookings' activeClassName="active">Bookings</Link></li>
                                     <li><a onClick={logOut}>Logout</a></li>
                                 </ul>
@@ -80,6 +85,11 @@ const Navbar = () => {
                                 <li>
                                     <a className="justify-between">
                                         {user?.displayName || "user not found"}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="justify-between">
+                                        {user?.email || "user email not found"}
                                     </a>
                                 </li>
                                 <li ><Link to='/bookings' activeClassName="active">My Bookings</Link></li>
