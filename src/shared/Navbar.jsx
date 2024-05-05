@@ -9,8 +9,8 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const navItems = <>
         <li ><NavLink to='/' activeClassName="active">Home</NavLink></li>
-        <li className=""><NavLink to='/about' activeClassName="active">About</NavLink></li>
-       
+        <li ><NavLink to='/about' activeClassName="active">About</NavLink></li>
+
     </>
     return (
         <div className="navbar bg-base-100 sticky  top-0 z-30">
@@ -28,31 +28,31 @@ const Navbar = () => {
 
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
 
-                        {navItems} 
+                        {navItems}
                         {user ?
-                    <div className="dropdown dropdown-end ml-20  md:ml-72 lg:ml-0 ">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={user?.photoURL || "https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg"} />
+                            <div className="dropdown dropdown-end ml-20  md:ml-72 lg:ml-0 ">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user?.photoURL || "https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg"} />
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <a className="justify-between">
+                                            {user?.displayName || "user not found"}
+                                        </a>
+                                    </li>
+                                    <li ><Link to='/bookings' activeClassName="active">Bookings</Link></li>
+                                    <li><a onClick={logOut}>Logout</a></li>
+                                </ul>
                             </div>
-                        </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    {user?.displayName || "user not found"}
-                                </a>
-                            </li>
-                            {/* <li><a>Settings</a></li> */}
-                            <li><a onClick={logOut}>Logout</a></li>
-                        </ul>
-                    </div>
-                    :
-                    <div className="md:flex gap-5">
-                        <li className="list-none"><NavLink to='/login' activeClassName="active">Log In</NavLink></li>
-                        <li className="list-none mr-5"><NavLink to='/register' activeClassName="active">Register</NavLink></li>
-                    </div>
+                            :
+                            <div className="md:flex gap-5">
+                                <li className="list-none"><NavLink to='/login' activeClassName="active">Log In</NavLink></li>
+                                <li className="list-none mr-5"><NavLink to='/register' activeClassName="active">Register</NavLink></li>
+                            </div>
 
-                }
+                        }
 
                     </ul>
                 </div>
@@ -68,36 +68,36 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navItems}
-                    
-                    {user ?
-                    <div className="dropdown dropdown-end ml-20  md:ml-72 lg:ml-20 ">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={user?.photoURL || "https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg"} />
-                            </div>
-                        </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    {user?.displayName || "user not found"}
-                                </a>
-                            </li>
-                            {/* <li><a>Settings</a></li> */}
-                            <li><a onClick={logOut}>Logout</a></li>
-                        </ul>
-                    </div>
-                    :
-                    <div className="flex ">
-                        <li className="list-none"><NavLink to='/login' activeClassName="active">Log In</NavLink></li>
-                        <li className="list-none "><NavLink to='/register' activeClassName="active">Register</NavLink></li>
-                    </div>
 
-                }
+                    {user ?
+                        <div className="dropdown dropdown-end ml-20  md:ml-72 lg:ml-20 ">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL || "https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg"} />
+                                </div>
+                            </div>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <a className="justify-between">
+                                        {user?.displayName || "user not found"}
+                                    </a>
+                                </li>
+                                <li ><Link to='/bookings' activeClassName="active">My Bookings</Link></li>
+                                <li><a onClick={logOut}>Logout</a></li>
+                            </ul>
+                        </div>
+                        :
+                        <div className="flex ">
+                            <li className="list-none"><NavLink to='/login' activeClassName="active">Log In</NavLink></li>
+                            <li className="list-none "><NavLink to='/register' activeClassName="active">Register</NavLink></li>
+                        </div>
+
+                    }
 
                 </ul>
             </div>
             <div className="navbar-end">
-                
+
                 <a className="btn btn-warning">Appointment</a>
             </div>
         </div>

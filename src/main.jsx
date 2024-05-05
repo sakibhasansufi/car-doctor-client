@@ -13,8 +13,9 @@ import Error from './pages/Error';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import AuthProvider from './providers/AuthProvider';
-import CheckOut from './pages/CheckOut';
 import BookService from './pages/BookService';
+import Bookings from './pages/Bookings';
+import PrivateRoute from './pages/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -35,12 +36,6 @@ const router = createBrowserRouter([
         path : '/blog',
         element : <Blog></Blog>
       },
-      
-      {
-        path : '/checkout/:id',
-        element : <CheckOut></CheckOut>,
-        loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
-      },
       {
         path : '/register',
         element : <Register></Register>
@@ -53,6 +48,10 @@ const router = createBrowserRouter([
         path : '/book/:id',
         element : <BookService></BookService>,
         loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+      },
+      {
+        path : '/bookings',
+        element : <PrivateRoute><Bookings></Bookings></PrivateRoute>
       }
 
     ]
