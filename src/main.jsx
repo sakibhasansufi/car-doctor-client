@@ -9,7 +9,6 @@ import Main from './layouts/Main';
 import Home from './pages/Home';
 import About from './pages/About'
 import Blog from './pages/Blog';
-import Contact from './pages/Contact';
 import Error from './pages/Error';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -36,10 +35,7 @@ const router = createBrowserRouter([
         path : '/blog',
         element : <Blog></Blog>
       },
-      {
-        path : '/contact',
-        element : <Contact></Contact>
-      },
+      
       {
         path : '/checkout/:id',
         element : <CheckOut></CheckOut>,
