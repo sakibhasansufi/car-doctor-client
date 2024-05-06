@@ -3,6 +3,7 @@ import img from '../assets/images/login/login.svg'
 import toast, { Toaster } from 'react-hot-toast';
 import { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
+import axios from 'axios';
 
 const Login = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -19,7 +20,12 @@ const Login = () => {
         try {
             //User Login
             const result = await signIn(email, password);
-            navigate(location?.state ? location.state : '/');
+            // navigate(location?.state ? location.state : '/');
+            const user = {email}
+            axios.post('http://localhost:5000/jwt',user)
+            .then(res=>{
+                console.log(res.data);
+            })
             console.log(result)
             toast.success('Signin Successful')
         } catch (err) {
@@ -33,7 +39,11 @@ const Login = () => {
     const handleSocialLogin= async socialProvider =>{
         await socialProvider();
         try{
-            navigate(location?.state ? location.state : '/')
+            // navigate(location?.state ? location.state : '/')
+            axios.post('http://localhost:5000/jwt',user)
+            .then(res=>{
+                console.log(res.data);
+            })
             toast.success('Signup Successful')
         } catch(err){
             console.log(err)
